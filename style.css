@@ -1,0 +1,945 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: #080808;
+    color: #e8e8e8;
+
+    font-family: "Courier New", monospace;
+
+    overflow: hidden;
+}
+
+.terminal {
+    width: 82%;
+    max-width: 900px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 18px;
+    line-height: 1.65;
+
+    transition: opacity 0.7s ease;
+}
+
+.terminal p {
+    margin: 4px 0;
+    min-height: 1.65em;
+}
+
+.success {
+    color: #b7ffb7;
+}
+
+.warning {
+    color: #ffd479;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.birthday-screen {
+    display: none;
+
+    min-height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: scale(0.98);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.birthday-screen.show {
+    display: flex;
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.hero {
+    width: 90%;
+    max-width: 900px;
+}
+
+.eyebrow {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color: #8f8f8f;
+
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 8vw, 90px);
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+}
+
+.version {
+    margin-top: 14px;
+
+    font-size: 16px;
+
+    color: #b7ffb7;
+
+    letter-spacing: 3px;
+}
+
+.divider {
+    width: 80px;
+    height: 1px;
+
+    background: #444;
+
+    margin: 35px auto;
+}
+
+.subtitle {
+    color: #aaa;
+
+    font-size: 16px;
+
+    margin-bottom: 40px;
+}
+
+button {
+    background: transparent;
+
+    color: #e8e8e8;
+
+    border: 1px solid #555;
+
+    padding: 14px 28px;
+
+    font-family: "Courier New", monospace;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    background: #e8e8e8;
+
+    color: #080808;
+
+    border-color: #e8e8e8;
+}/* =====================================================
+   FELIPE BIRTHDAY BUILD
+   PALETA: AZUL + CINZA + BRANCO
+   ===================================================== */
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+
+.content-screen {
+    display: none;
+    background: #080b10;
+    color: #f2f5f8;
+}
+
+.content-screen.show {
+    display: block;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 110px 8%;
+    display: flex;
+    align-items: center;
+}
+
+.content-wrap {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-wrap.narrow {
+    max-width: 760px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Pequenos títulos técnicos */
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #718096;
+    margin-bottom: 28px;
+}
+
+/* Títulos principais */
+
+.section h2 {
+    font-size: clamp(36px, 6vw, 72px);
+    margin: 0 0 30px;
+    font-weight: 500;
+    color: #f5f7fa;
+}
+
+/* Textos principais */
+
+.lead {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #aeb8c4;
+}
+
+
+/* ===== ORIGIN ===== */
+
+.timeline {
+    margin-top: 50px;
+    border-left: 1px solid #314052;
+    padding-left: 28px;
+}
+
+.timeline-item {
+    margin-bottom: 34px;
+}
+
+.timeline-item span,
+.commit span {
+    color: #72aee6;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.timeline-item p,
+.commit p {
+    margin: 8px 0 0;
+    color: #c8d0d9;
+}
+
+.status-line {
+    margin-top: 40px;
+    color: #72aee6;
+    letter-spacing: 2px;
+}
+
+
+/* ===== CORE / CODE ===== */
+
+.section-code {
+    background: #0c1118;
+}
+
+.code-card {
+    background: #101720;
+    border: 1px solid #293747;
+    padding: 35px;
+    overflow-x: auto;
+}
+
+.code-card pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: "Courier New", monospace;
+    line-height: 1.8;
+    color: #dce3ea;
+}
+
+
+/* ===== PARTNERSHIP ===== */
+
+.section-love {
+    background: #090d12;
+}
+
+.correction {
+    color: #72aee6;
+    margin-bottom: 30px;
+}
+
+.mini-code {
+    margin-top: 35px;
+    color: #c3ccd6;
+    line-height: 2;
+}
+
+
+/* ===== FAMILY ===== */
+
+.relationship-update {
+    margin: 40px 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 18px;
+}
+
+.old-value {
+    color: #65717e;
+    text-decoration: line-through;
+}
+
+.arrow {
+    color: #8794a3;
+}
+
+.new-value {
+    color: #72aee6;
+}
+
+.family-quote {
+    font-size: 28px;
+    line-height: 1.5;
+    margin-top: 50px;
+    color: #f2f5f8;
+}
+
+
+/* ===== HISTORY ===== */
+
+.commits {
+    margin-top: 40px;
+}
+
+.commit {
+    padding: 20px 0;
+    border-bottom: 1px solid #26313d;
+}
+
+.final-commit p {
+    color: #8fc5f4;
+}
+
+
+/* ===== README ===== */
+
+.section-readme {
+    background: #0d131a;
+}
+
+.letter {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #d0d7df;
+}
+
+.letter p {
+    margin-bottom: 25px;
+}
+
+.signature {
+    margin-top: 50px;
+    color: #ffffff;
+}
+
+
+/* ===== FINAL ===== */
+
+.section-final {
+    min-height: 80vh;
+}
+
+.version-final {
+    color: #72aee6;
+    letter-spacing: 3px;
+}
+
+.loading-next {
+    margin-top: 45px;
+    color: #74808d;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 700px) {
+
+    .section {
+        padding: 80px 24px;
+    }
+
+    .lead {
+        font-size: 17px;
+    }
+
+    .family-quote {
+        font-size: 23px;
+    }
+
+    .code-card {
+        padding: 22px;
+    }
+
+    .letter {
+        font-size: 16px;
+    }
+}/* =====================================================
+   AULA 5 — NARRATIVA VISUAL
+   ===================================================== */
+
+
+/* ===== IMAGEM DA TRAJETÓRIA PROFISSIONAL ===== */
+
+.origin-image {
+    position: relative;
+    margin-top: 65px;
+    margin-bottom: 45px;
+    overflow: hidden;
+    border: 1px solid #263747;
+}
+
+.origin-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+
+    filter:
+        saturate(0.75)
+        contrast(1.04)
+        brightness(0.88);
+}
+
+.origin-image span {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+
+    padding: 8px 12px;
+
+    background: rgba(8, 11, 16, 0.88);
+    border: 1px solid #405064;
+
+    color: #9fc7ed;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* ===== DOUTORADO ===== */
+
+.section-phd {
+    background: #0a1017;
+}
+
+.phd-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 70px;
+    align-items: center;
+}
+
+.phd-description {
+    margin-top: 28px;
+    color: #aeb8c4;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.phd-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #293747;
+}
+
+.phd-photo img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    display: block;
+
+    filter:
+        saturate(0.78)
+        contrast(1.05);
+}
+
+.phd-photo span {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+
+    padding: 8px 12px;
+
+    background: rgba(8, 11, 16, 0.88);
+    border: 1px solid #405064;
+
+    color: #9fc7ed;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* ===== PARTNERSHIP ===== */
+
+.partnership-image {
+    position: relative;
+    margin-bottom: 60px;
+    overflow: hidden;
+    border: 1px solid #293747;
+}
+
+.partnership-image img {
+    display: block;
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+
+    filter:
+        saturate(0.8)
+        contrast(1.02);
+}
+
+.partnership-image span {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+
+    padding: 8px 12px;
+
+    background: rgba(8, 11, 16, 0.88);
+    border: 1px solid #405064;
+
+    color: #9fc7ed;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* ===== SONHOS / VIAGENS ===== */
+
+.travel-memory {
+    margin-top: 75px;
+}
+
+.travel-memory img {
+    width: 100%;
+    max-height: 620px;
+    object-fit: cover;
+    display: block;
+
+    filter:
+        saturate(0.85)
+        brightness(0.9);
+}
+
+.travel-text {
+    margin-top: 22px;
+    text-align: right;
+}
+
+.travel-text span {
+    color: #72aee6;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.travel-text p {
+    margin-top: 10px;
+    color: #aeb8c4;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* ===== FAMILY ===== */
+
+.family-image {
+    position: relative;
+    margin-bottom: 55px;
+    overflow: hidden;
+    border: 1px solid #293747;
+}
+
+.family-image img {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+
+    filter:
+        saturate(0.8)
+        contrast(1.03);
+}
+
+.family-image span {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+
+    padding: 8px 12px;
+
+    background: rgba(8, 11, 16, 0.88);
+    border: 1px solid #405064;
+
+    color: #9fc7ed;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* ===== APOIO COMO PAI ===== */
+
+.father-support {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    align-items: center;
+    gap: 45px;
+    margin-top: 70px;
+}
+
+.father-support img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    display: block;
+
+    filter:
+        saturate(0.82)
+        brightness(0.9);
+}
+
+.father-support-text {
+    border-left: 1px solid #314052;
+    padding-left: 28px;
+}
+
+.father-support-text span {
+    color: #72aee6;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.father-support-text p {
+    margin-top: 18px;
+    color: #c8d0d9;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+
+/* ===== FOTO FINAL ===== */
+
+.final-image {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 75px;
+    overflow: hidden;
+    border: 1px solid #293747;
+}
+
+.final-image img {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+
+    filter:
+        brightness(0.7)
+        saturate(0.75);
+}
+
+.final-image-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(7, 10, 14, 0.05),
+            rgba(7, 10, 14, 0.28)
+        );
+}
+
+.final-image-overlay span {
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 6px;
+
+    padding: 13px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.42);
+
+    background: rgba(8, 11, 16, 0.25);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .origin-image img,
+    .partnership-image img,
+    .family-image img,
+    .final-image img {
+        height: 380px;
+    }
+
+    .phd-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .phd-photo img {
+        height: 470px;
+    }
+
+    .father-support {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .father-support img {
+        height: 390px;
+    }
+
+    .father-support-text {
+        border-left: none;
+        border-top: 1px solid #314052;
+        padding-left: 0;
+        padding-top: 25px;
+    }
+
+    .travel-text {
+        text-align: left;
+    }
+}.family-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}/* =====================================================
+   AULA 6 — ACABAMENTO FINAL
+   ===================================================== */
+
+/* ===== ANIMAÇÃO DE ENTRADA ===== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ===== SUAVIDADE GERAL ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080b10;
+}
+
+
+/* ===== SEPARAÇÃO ENTRE SEÇÕES ===== */
+
+.section {
+    border-top: 1px solid rgba(113, 128, 150, 0.08);
+}
+
+
+/* ===== TÍTULOS MAIS REFINADOS ===== */
+
+.section h2 {
+    letter-spacing: -1px;
+}
+
+.section-label {
+    text-transform: uppercase;
+}
+
+
+/* ===== CARDS ===== */
+
+.code-card,
+.origin-image,
+.phd-photo,
+.partnership-image,
+.family-image,
+.final-image {
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ===== BOTÃO DA ABERTURA ===== */
+
+#enterButton {
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#enterButton:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .section {
+        min-height: auto;
+        padding: 75px 22px;
+    }
+
+    .content-wrap,
+    .content-wrap.narrow {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section h2 {
+        font-size: 38px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .section-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        line-height: 1.6;
+    }
+
+    .lead {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .timeline {
+        margin-top: 40px;
+        padding-left: 20px;
+    }
+
+    .timeline-item {
+        margin-bottom: 30px;
+    }
+
+    .code-card {
+        padding: 20px;
+    }
+
+    .code-card pre {
+        font-size: 13px;
+        line-height: 1.65;
+        overflow-x: auto;
+        white-space: pre;
+    }
+
+    .relationship-update {
+        gap: 12px;
+        font-size: 15px;
+    }
+
+    .family-quote {
+        font-size: 24px;
+    }
+
+    .letter {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .mini-code {
+        font-size: 14px;
+    }
+
+    .travel-memory {
+        margin-top: 55px;
+    }
+
+    .final-image {
+        margin-bottom: 55px;
+    }
+
+    .final-image-overlay span {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
+    .phd-photo img {
+        height: auto;
+    }
+
+    .partnership-image img {
+        height: auto;
+    }
+
+    .father-support img {
+        height: auto;
+    }
+
+    .origin-image img {
+        height: auto;
+    }
+
+    .final-image img {
+        height: auto;
+    }
+
+    .birthday-screen {
+        padding: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 16vw, 76px);
+        line-height: 0.95;
+    }
+
+    .subtitle {
+        line-height: 1.7;
+    }
+}
